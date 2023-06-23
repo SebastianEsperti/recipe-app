@@ -13,13 +13,7 @@ function RecipeCreate({ onCreate }) {
     event.preventDefault();
 
     // Create a new recipe object
-    const newRecipe = {
-      name: recipe.name,
-      cuisine: recipe.cuisine,
-      photo: recipe.photo,
-      ingredients: recipe.ingredients,
-      preparation: recipe.preparation
-    };
+    const newRecipe = { ...recipe };
 
     // Call the onCreate function to add the new recipe
     onCreate(newRecipe);
@@ -48,80 +42,59 @@ function RecipeCreate({ onCreate }) {
         <tbody>
           <tr>
             <td>
-              <label htmlFor="name">Name:</label>
-            </td>
-            <td>
               <input
                 type="text"
                 id="name"
                 name="name"
+                placeholder="Name"
                 value={recipe.name}
                 onChange={handleChange}
                 required
               />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label htmlFor="cuisine">Cuisine:</label>
             </td>
             <td>
               <input
                 type="text"
                 id="cuisine"
                 name="cuisine"
+                placeholder="Cuisine"
                 value={recipe.cuisine}
                 onChange={handleChange}
                 required
               />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label htmlFor="photo">Photo URL:</label>
             </td>
             <td>
               <input
                 type="text"
                 id="photo"
                 name="photo"
+                placeholder="Photo URL"
                 value={recipe.photo}
                 onChange={handleChange}
                 required
               />
             </td>
-          </tr>
-          <tr>
-            <td>
-              <label htmlFor="ingredients">Ingredients:</label>
-            </td>
             <td>
               <textarea
                 id="ingredients"
                 name="ingredients"
+                placeholder="Ingredients"
                 value={recipe.ingredients}
                 onChange={handleChange}
                 required
               ></textarea>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <label htmlFor="preparation">Preparation:</label>
-            </td>
             <td>
               <textarea
                 id="preparation"
                 name="preparation"
+                placeholder="Preparation"
                 value={recipe.preparation}
                 onChange={handleChange}
                 required
               ></textarea>
             </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
+            <td style={{ textAlign: "center" }}>
               <button type="submit">Create</button>
             </td>
           </tr>
